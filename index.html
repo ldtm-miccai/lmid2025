@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><LIDM-MICCAI2025></LIDM-MICCAI2025></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        
+        header {
+        background-color: #f8f8f8;
+        padding: 30px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header-content {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: 120px; /* Adjust based on your logo size */
+    }
+
+    .logo {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        max-height: 100px;
+        width: auto;
+    }
+
+    .workshop-logo {
+        left: 0;
+    }
+
+    .main-conference-logo {
+        right: -40px;
+    }
+
+    .workshop-info {
+        text-align: center;
+        padding: 0 200px; /* Adjust based on your logo size */
+    }
+
+    .workshop-name {
+        font-size: 40px;
+        margin: 0 0 10px 0;
+        color: #333;
+    }
+
+    .workshop-date {
+        font-size: 20px;
+        margin: 0;
+        color: #666;
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: auto;
+        }
+
+        .logo {
+            position: static;
+            transform: none;
+            margin: 10px 0;
+        }
+
+        .workshop-info {
+            order: -1;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .workshop-name {
+            font-size: 28px;
+        }
+
+        .workshop-date {
+            font-size: 18px;
+        }
+    }
+
+
+
+
+
+        /* header {
+            /* background-color: #343a40; */
+            /* background-image: url("assets/Djemaa_el_Fna_crop2.jpg"); */
+            /* background-size: cover; */
+            /* background-repeat: no-repeat; */
+            /* background-attachment: fixed; */
+            /* color: #fff; */
+            /* padding: 60px; */
+            /* text-align: center; */
+        /* } */ 
+
+        nav {
+            background-color: #343a40;
+            overflow: hidden;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        nav a:hover {
+            background-color: #ccc;
+            color: black;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            margin-bottom: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #343a40;
+        }
+
+        p {
+            color: #666;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+
+        .organizer {
+            display: inline-flex;
+            align-items: center;
+            /* margin-bottom: 20px; */
+            padding: 20px;
+        }
+
+        .organizer img {
+            border-radius: 50%;
+            margin-right: 20px;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+
+        .organizer-info {
+            flex-grow: 1;
+        }
+
+        .organizer-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .speaker {
+        font-style: italic;
+        color: #666;
+    }
+
+        .organizer-affiliation {
+            color: #666;
+        }
+        .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    #keynote-speakers {
+        padding: 20px;
+    }
+
+    .keynote-speaker-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .keynote-speaker {
+        width: 300px;
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .keynote-speaker-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .affiliation {
+        font-style: italic;
+        color: #666;
+        margin: 5px 0;
+    }
+
+    .bio {
+        font-style: italic;
+    }
+
+    .abstract {
+        display: none;
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    .abstract.show {
+        display: block;
+    }
+
+    .abstract-toggle {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 5px 10px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 600px) {
+        .keynote-speaker {
+            width: 100%;
+        }
+    }
+
+    .responsive-table th,
+    .responsive-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .responsive-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    @media screen and (max-width: 600px) {
+        .responsive-table thead {
+            display: none;
+        }
+
+        .responsive-table tr {
+            display: block;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .responsive-table td {
+            display: block;
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+        .responsive-table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            text-align: left;
+            font-weight: bold;
+        }
+    }
+    
+</style>
+    </style>
+
+
+</head>
+
+
+<body>
+    <!-- <header>
+        <img src="Djemaa_el_Fna.jpg" alt="Conference Image" width="300" height="150">
+        <!-- <h1 style="color:#343a40; text-align: center">Longitudinal Disease Tracking and Modelling with Medical Images -->
+            <!-- and Data (LDTM)</h1> -->
+        <!-- <h2 style="color: #7B1D09; text-align: center">A Satellite Workshop with <img src="assets/miccai2023-logo.png" , -->
+                <!-- width="250" , height="130"></h2> -->
+        <!-- <h1 style="color:#7B1D09"> October 10, 2024</h1> -->
+    <!-- </header> --> 
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <!-- <img src="./assets/LDTM_Logo/LDTM2.png" alt="Workshop Logo" class="logo workshop-logo"> -->
+                <img src="./assets/miccai2025-logo.png" alt="Main Conference Logo" class="logo main-conference-logo">
+            </div>
+            <div class="workshop-info">
+                <h1 class="workshop-name">Learning with Longitudinal Medical Images and Data</h1>
+                <p class="workshop-date">September 23, 2024</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="d-none d-md-block">
+        <a href="#aims-and-scope">Aims and Scope</a>
+        <a href="#call-for-papers">Call for Papers</a>
+        <a href="#important-dates">Important Dates</a>
+        <a href="#keynote-speakers">Keynote Speakers</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#organizers">Organizers</a>
+        <a href="#past-workshops">Past Workshops</a>
+    </nav>
+    <!-- Dropdown menu for mobile view -->
+    <div class="d-md-none">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="collapse" data-target="#mobileMenu"
+            aria-expanded="false" aria-controls="mobileMenu">
+            Menu
+        </button>
+        <div class="collapse" id="mobileMenu">
+            <div class="card card-body">
+                <a href="#aims-and-scope">Aims and Scope</a>
+                <a href="#call-for-papers">Call for Papers</a>
+                <a href="#important-dates">Important Dates</a>
+                <a href="#agenda">Agenda</a>
+                <a href="#organizers">Organizers</a>
+                <a href="#past-workshops">Past Workshops</a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <section id="aims-and-scope">
+            <strong><a href="#important-dates">Submission deadline</a> EXTENDED to 28 June 2024</strong>
+            <h2>Aims and Scope</h2>
+            <p>Clinical workflows are increasing data-driven. Medical data, including imaging, is routinely employed 
+                to track the progression of disease or to assess response to treatment. For example, patients with cancer are often
+                followed up longitudinally using radiological imaging (e.g., CT/MR/PET) to identify and track lesions,
+                and assess treatment response.
+
+                Recent developments in AI and machine learning have shown promise in automating or improving parts of
+                the clinical workflow, from being able to find lesions in various organs, to classification and
+                diagnosis of diseases. Unfortunately, despite the key role of serial imaging in the clinical workflow,
+                developing AI systems that can track or model disease progression by learning from and exploiting
+                longitudinal imaging has not received much attention until recently. Besides their role in the everyday
+                clinical workflow, such models can enhance biological understanding of diseases to shape prevention and
+                intervention strategies, inform clinical trial design, and support clinical decision making, such as
+                patient diagnosis and prognosis.Therefore, in this workshop, we solicit submissions which adhere to the
+                general theme of tracking and modeling disease progression with imaging and/or multimodal data.</p>
+
+            <p>Two areas are of particular interest:</p>
+            <ul>
+                <li>Area 1: Cancer and concomitant diseases, where possible themes include tasks, such as detection,
+                    classification or segmentation of lesions or other abnormalities with or without multiple time
+                    points,
+                    combining imaging with other multi-modal data (e.g. radiology reports, electronic medical records),
+                    combining imaging and large language models (LLMs) to identify and track findings and disease status
+                    over time as well as mechanistic models.</li>
+                <li>Area 2: Neurodegenerative diseases, where data driven disease progression modeling (DPM), often
+                    using
+                    imaging biomarkers, has received increasing interest recently. In our recent publications in Nature
+                    Reviews Neuroscience, we provide comprehensive overviews of the current state-of-the-art
+                    phenomenological and pathophysiological models. ​​​​Phenomenological models simultaneously estimate
+                    the
+                    disease progression trajectories from observed data together with the corresponding temporal axis
+                    and
+                    have important applications in patient subtyping and staging. Pathophysiological models aim to
+                    understand underlying disease mechanisms by modeling connectome-moderated pathology appearance and
+                    spreading, brain networks, and other dynamical systems models. Key emerging topics include:
+                    integrating
+                    pathophysiological and phenomenological models, pathophysiological models of the interaction of
+                    multiple
+                    disease mechanisms, and the role of deep learning in DPM.</li>
+            </ul>
+            <p>The workshop is not limited to the above disease areas and we welcome submissions related to other
+                diseases or applications as well. While the focus is on longitudinal data, we also welcome submissions
+                which perform DPM with cross-sectional data. Finally, we also welcome and encourage submissions related
+                to new datasets that can enable the research of tomorrow.</p>
+
+            <p>The scope of the conference includes, but is not limited to:</p>
+            <ul>
+                <li>Detection, classification, segmentation of abnormal anatomical structures. Areas of interest
+                    include, but are not limited to the following: lesions, tumors, lymph nodes, neurodegenerative
+                    changes etc.
+                </li>
+                <li>Disease progression modeling</li>
+                <li>Longitudinal data analysis</li>
+                <li>Follow-up assessment</li>
+                <li>Disease tracking and outcome prediction with longitudinal and/or multi-modal data</li>
+                <li>Surgical and Computer-Assisted interventions to determine/track changes</li>
+                <li>Histopathological analysis and change tracking over time</li>
+                <li>Image registration of longitudinal series for subsequent assessment</li>
+                <li>Multi-modal data fusion for detection, diagnosis, and image-guided interventions</li>
+                <li>New datasets and metrics</li>
+                <!-- Add more topics as needed -->
+            </ul>
+        </section>
+        <section id="call-for-papers">
+            <h2>Call for Papers</h2>
+            <p><a
+                href="https://cmt3.research.microsoft.com/LIDM2025/Submission/Index">CMT submission website</a></p>
+            
+            <p>We solicit submissions consistent with the aims and scope of the workshop. The following types of
+                submissions will be accepted:
+            <ul>
+                <li><strong>Full Papers:</strong> We encourage the submissions of full-length papers (<strong>upto 10 pages
+                        excluding references</strong>) describing new work that has not been previously published or
+                    accepted for publication. Accepted papers will be presented as orals.</li>
+                <li><strong>Accepted manuscripts from MICCAI main conference:</strong> We also invite authors of an
+                    accepted manuscript at MICCAI which is of interest for our workshop to present their work in an oral
+                    presentation at our workshop to strengthen the community around this topic.</li>
+            </ul>
+            All papers must adhere to the formatting and style used by the MICCAI main
+            conference -- they should be anonymized and use the manuscript templates available at <a
+                href="https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines">Lecture Notes
+                in Computer Science</a>. 
+            <strong>Accepted papers will be published as part of a Springer Lecture Notes in Computer Science volume.</strong>
+            </p>
+        </section>
+
+        <section id="important-dates">
+            <h2>Important Dates</h2>
+            All deadlines are <strong>23:59 UTC-12/Anywhere on Earth (AoE)</strong>
+            <ul>
+                <li><strong>Full paper submission deadline EXTENDED: <s>June 24, 2024</s> June 28, 2024</strong></li>
+                <li>Notification of acceptance: July 15, 2024</li>
+                <li>Camera Ready paper submission: August 5, 2024</li>
+                <li>Notification of acceptance (abstracts): August 19, 2024</li>
+            </ul>
+        </section>
+
+        <section id="keynote-speakers">
+            <h2>Keynote Speakers</h2>
+            <div class="keynote-speaker-container">
+                <div class="keynote-speaker">
+                    <img src="./assets/jacob_vogel.jpg" alt="Dr. Jacob Vogel" class="keynote-speaker-image">
+                    <h3>Dr. Jacob Vogel</h3>
+                    <p class="affiliation">DDLS Fellow, Lund University</p>
+                    <p><a href="https://portal.research.lu.se/en/persons/jacob-vogel" target="_blank">Website</a></p>
+                    <!-- <p class="bio">Dr. Jane Smith is a renowned AI researcher and author of "The Future of Intelligence".</p> -->
+                    <p><strong>Leveraging disease progression models toward biological insights and clinical practice in neurodegenerative disease</strong></p>
+                    <button class="abstract-toggle">Show Abstract</button>
+                    <p class="abstract">Neurodegenerative diseases are characterized by accumulation of pathological proteins leading to progressive damage to select neuronal populations and concomitant clinical decline. Models have emerged that build around biological properties of these diseases in order to model their progression. Many of these “disease progression models” were initially employed to provide holistic descriptions of the disease process, or to test specific hypotheses. However, insofar as disease progression models act as multifaceted simulations of a disease, they have great potential to be extended to provide novel biological insights and even clinically useful information.
+ 
+                        In this talk, I will discuss work using two different types of disease progression models. I will first discuss connectome-based models — which operate under the assumption that disease pathology travels through the brain’s intrinsic axonal architecture — in the context of accumulation of the tau protein in Alzheimer’s disease. Second, I will discuss applications of the Subtype and Stage Inference disease subtyping algorithm across a different neurodegenerative diseases, including Alzheimer’s disease, Lewy body disease and TDP-43 proteinopathy. Throughout the talk, there will be a specific focus on how we and others have employed these models to formulate new hypotheses about disease biology, as well as preliminary work toward building disease progression models into clinically useful tools. 
+                        </p>
+                </div>
+                <div class="keynote-speaker">
+                    <img src="./assets/Dako_Farouk.jpg" alt="Dr. Farouk Dako, MD MPH" class="keynote-speaker-image">
+                    <h3>Dr. Farouk Dako</h3>
+                    <p class="affiliation">Assistant Professor of  Radiology, University of Pennsylvania</p>
+                    <p><a href="https://www.pennmedicine.org/providers/profile/farouk-dako" target="_blank">Website</a></p>
+                    <!-- <p class="bio">TBD</p> -->
+                    <h4>Talk title: TBD</h4>
+                    <button class="abstract-toggle">Show Abstract</button>
+                    <p class="abstract">TBD</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="agenda">
+            <h2>Agenda</h2>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Session</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Time">1:30 PM - 1:35 PM</td>
+                        <td data-label="Session">
+                            <strong>Welcome and introduction</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">1:35 AM - 2:20 PM</td>
+                        <td data-label="Session">
+                            <strong>Keynote 1</strong>
+                            <br>
+                            <span class="speaker">Dr. Jacob Vogel</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">2:20 PM - 2:31 PM</td>
+                        <td data-label="Session">
+                            <strong>DP-MoSt for detecting sub-trajectories in the natural history of pathologies</strong>
+                            <br>
+                            <span class="speaker">Alessandro Viani</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">2:31 PM - 2:42 PM</td>
+                        <td data-label="Session">
+                            <strong>Back to the Future: Challenges of Sparse and Irregular Medical Image Time Series</strong>
+                            <br>
+                            <span class="speaker">Nico A Disch</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">2:42 PM - 2:53 PM</td>
+                        <td data-label="Session">
+                            <strong>Probabilistic Temporal Prediction of Continuous Disease Trajectories and Treatment Effects Using Neural SDEs</strong>
+                            <br>
+                            <span class="speaker">Joshua D Durso-Finley</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">2:53 PM - 3:04 PM</td>
+                        <td data-label="Session">
+                            <strong>Enhancing Spatiotemporal Disease Progression Models via Latent Diffusion and Prior Knowledge</strong>
+                            <br>
+                            <span class="speaker">Lemuel Puglisi</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">3:04 PM - 3:15 PM</td>
+                        <td data-label="Session">
+                            <strong>Individualized multi-horizon MRI trajectory prediction for Alzheimer's Disease</strong>
+                            <br>
+                            <span class="speaker">Rosemary Y He</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">3:15 PM - 3:30 PM</td>
+                        <td data-label="Session">
+                            <strong>Towards Longitudinal Characterization of Multiple Sclerosis Atrophy Employing SynthSeg Framework and Normative Modeling</strong>
+                            <br>
+                            <span class="speaker">Pedro Macias Gordaliza</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">3:30 PM - 4:00 PM</td>
+                        <td data-label="Session">
+                            <strong>Coffee Break</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">4:00 PM - 4:45 PM</td>
+                        <td data-label="Session">
+                            <strong>Keynote 2</strong>
+                            <br>
+                            <span class="speaker">Dr. Farouk Dako</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">4:45 PM - 4:50 PM</td>
+                        <td data-label="Session">
+                            <strong>Automated Segmentation and Registration of Fundus Autofluorescence Imaging facilitates better monitoring of Geographic Atrophy Growth</strong>
+                            <br>
+                            <span class="speaker">Yoga Advaith Veturi</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">4:50 PM - 5:01 PM</td>
+                        <td data-label="Session">
+                            <strong>SegHeD: Segmentation of Heterogeneous Data for Multiple Sclerosis Lesions with Anatomical Constraints</strong>
+                            <br>
+                            <span class="speaker">Berke D Basaran</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">5:01 PM - 5:12 PM</td>
+                        <td data-label="Session">
+                            <strong>Longitudinal Segmentation of MS Lesions via Temporal Difference Weighting</strong>
+                            <br>
+                            <span class="speaker">Maximilian R Rokuss</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">5:12 PM - 5:23 PM</td>
+                        <td data-label="Session">
+                            <strong>Registration of Longitudinal Liver Examinations for Tumor Progress Assessment</strong>
+                            <br>
+                            <span class="speaker">Walid Yassine</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">5:23 PM - 5:34 PM</td>
+                        <td data-label="Session">
+                            <strong>Tracking lesion evolution using a Boundary Enhanced Approach for MS change segmentation (BEAMS)</strong>
+                            <br>
+                            <span class="speaker">Prateek Mathur</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">5:34 PM - 5:45 PM</td>
+                        <td data-label="Session">
+                            <strong>A Radiological-based Coordinate System for the Human Body: A Proof-of-Concept</strong>
+                            <br>
+                            <span class="speaker">Stefano Trebeschi</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">5:45 PM - 5:56 PM</td>
+                        <td data-label="Session">
+                            <strong>Vestibular schwannoma growth prediction from longitudinal MRI by time conditioned neural fields</strong>
+                            <br>
+                            <span class="speaker">Yunjie Chen</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time">5:56 PM - 6:00 PM</td>
+                        <td data-label="Session">
+                            <strong>Closing remarks and adjournment</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </section>
+
+
+        <section id="organizers">
+            <h2>Organizers</h2>
+            <div class="grid">
+                <div class="organizer">
+                    <img src="assets/Alessa_Hering.jpg" alt="Alessa Hering">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Alessa Hering</div>
+                        <div class="organizer-affiliation">Radboudumc, Nijmegen, The Netherlands <br> and Fraunhofer
+                            MEVIS, Germany</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/alexandra_young.jpg" alt="Alexandra Young">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Alexandra Young</div>
+                        <div class="organizer-affiliation">Centre for Medical Image Computing, <br> University College
+                            London, London, UK</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/anna_schroder.jpg" alt="Anna Schroder">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Anna Schroder</div>
+                        <div class="organizer-affiliation">Centre for Medical Image Computing, <br> University College
+                            London, London, UK</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/bruno_jedynak.jpg" alt="Bruno Jedynak">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Bruno Jedynak</div>
+                        <div class="organizer-affiliation">Department of Mathematics and Statistics, <br> Portland State
+                            University, Portland, USA</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/Isaac_Llorente-Saguer.jpeg" alt="Isaac Llorente-Saguer">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Isaac Llorente-Saguer</div>
+                        <div class="organizer-affiliation">Centre for Medical Image Computing, <br> University College
+                            London, London, UK</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/jacob_vogel.jpg" alt="Jacob Vogel">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Jacob Vogel</div>
+                        <div class="organizer-affiliation">Clinical Memory Research Unite, <br> Lund University, Lund,
+                            Sweden</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/neil_oxtoby.jpg" alt="Neil Oxtoby">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Neil Oxtoby</div>
+                        <div class="organizer-affiliation">Centre for Medical Image Computing, <br> University College
+                            London, London, UK</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/peter_wijeratne.jpg" alt="Peter Wijeratne">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Peter Wijeratne</div>
+                        <div class="organizer-affiliation">Department of Informatics, <br> University of Sussex,
+                            Brighton, UK</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/pritam_mukherjee.jpg" alt="Pritam Mukherjee">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Pritam Mukherjee</div>
+                        <div class="organizer-affiliation">National Institutes of Health, <br> Clinical Center,
+                            Bethesda, USA</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/sara_garbarino.jpg" alt="Sara Garbarino">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Sara Garbarino</div>
+                        <div class="organizer-affiliation">Life Science Computational Laboratory, <br> IRCCS Ospedale
+                            Policlinico San Martino, Genoa, Italy</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/sven_kuckertz.jpg" alt="Sven Kuckertz">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Sven Kuckertz</div>
+                        <div class="organizer-affiliation">Fraunhofer MEVIS, <br> Lübeck, Germany,</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/tejas_mathai.jpg" alt="Tejas Mathai">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Tejas Mathai</div>
+                        <div class="organizer-affiliation">National Institutes of Health, <br> Clinical Center,
+                            Bethesda, USA</div>
+                    </div>
+                </div>
+
+                <div class="organizer">
+                    <img src="assets/tiantian_he.jpg" alt="Tiantian He">
+                    <div class="organizer-info">
+                        <div class="organizer-name">Tiantian He</div>
+                        <div class="organizer-affiliation">Centre for Medical Image Computing, <br> University College
+                            London, London, UK</div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- Add more organizers as needed -->
+        </section>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.querySelectorAll('.abstract-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const abstract = button.nextElementSibling;
+                abstract.classList.toggle('show');
+                button.textContent = abstract.classList.contains('show') ? 'Hide Abstract' : 'Show Abstract';
+            });
+        });
+    </script>
+
+</body>
+
+</html>
